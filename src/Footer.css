@@ -1,0 +1,23 @@
+.footer {
+    height: 100px;
+    width: 100%;
+    background-color: #dff1d9;
+    color: black;
+    text-align: center;
+    position: relative;
+    padding-top: 1.5rem;
+    -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
+  }
+  
+  .footer > a {
+    margin-right: 1rem;
+  }
+  
+  .footer-capture {
+    font-size: 0.8rem;
+    color: #252627;
+    margin-bottom: 1rem;
+  }
+  
