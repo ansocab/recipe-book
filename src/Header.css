@@ -1,0 +1,46 @@
+.navbar-top {
+    font-family: 'Lancelot';
+    text-transform: uppercase;
+    line-height: 24px;
+    font-weight: 700;
+    font-style: bolder;
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+    box-shadow: 0 4px 2px -2px grey;
+    cursor: pointer;
+    background-color: #dff1d9 !important;
+  }
+  
+  .nav-color {
+    color: #22201f !important;
+  }
+  
+  .search {
+    background-image: url('https://3hywdj13z8cdwz0r92br9l51-wpengine.netdna-ssl.com/food-demo/wp-content/uploads/sites/2/2016/01/v_header_.jpg');
+    background-size: cover;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 4px 2px -2px grey;
+  }
+  
+  .sidebar {
+    position: absolute;
+    top: 17px;
+    right: 50px;
+  }
+  
+  .sidebarSocial span {
+    font-size: 21px;
+    color: #404040;
+    padding-right: 18px;
+    text-align: right;
+    cursor: pointer;
+  }
+  
+  .sidebarSocial span:hover {
+    color: #a80d0d;
+  }
+  
+  

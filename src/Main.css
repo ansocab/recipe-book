@@ -1,0 +1,61 @@
+/*Subscription Part*/
+  .home-newsletter {
+    padding: 1rem 0 5rem 0;
+    background-image: url('./images/bg_recipes.png');
+    background-size: cover;
+    background-position: left center;
+    position: relative;
+  }
+  
+  .home-newsletter .single {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .home-newsletter .single h2 {
+    font-family: 'CrimsonText';
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .home-newsletter .single p {
+    font-family: 'CrimsonText';
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .home-newsletter .single .form-control {
+    height: 50px;
+    background: rgba(255, 255, 255, 0.6);
+    border-color: transparent;
+    border-radius: 20px 0 0 20px;
+  }
+  
+  .home-newsletter .single .form-control:focus {
+    box-shadow: none;
+    border-color: #ec6f78;
+  }
+  
+  .home-newsletter .single .btn {
+    font-family: 'Lancelot';
+    font-size: 1.3rem;
+    min-height: 50px;
+    border-radius: 0 20px 20px 0;
+    background: #ec6f78;
+    color: #fff;
+  }
+  .newsletter-box {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5rem;
+  }
+  .title-text {
+    font-family: 'CrimsonText';
+    font-size: 2.2rem !important;
+    letter-spacing: 0.5px;
+  }
+  
+  

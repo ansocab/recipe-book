@@ -1,3 +1,44 @@
+@font-face {
+  font-family: 'HeyOctober';
+  src: url('./fonts/HeyOctober-Yz37y.ttf');
+  src: url('./fonts/HeyOctober-8M8oZ.otf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'CrimsonText';
+  src: url('./fonts/CrimsonText-Italic.ttf');
+  src: url('./fonts/CrimsonText-SemiBoldItalic.ttf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lancelot';
+  src: url('./fonts/Lancelot-Regular.ttf');
+  font-style: normal;
+  font-weight: normal;
+}
+
 .App {
   text-align: center;
+  height:100vh;
 }
+
+html {
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrap {
+  background-image: url('./images/bg.jpg');
+  padding-top: 3rem;
+  padding-bottom: 12rem;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  height: 100vh;
+}
+
+
+
