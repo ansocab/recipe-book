@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Fragment } from 'react';
 import './Main.css';
-
+var contentful = require('contentful');
 export default function Main() {
+    const [recipes, setRecipes] = useState([]);
+    useEffect(() => {
+        var client = contentful.createClient({
+          space: process.env.REACT_APP_SPACE_ID,
+          accessToken: process.env.REACT_APP_ACCESS_TOKEN
+        });
+        client.getEntries().then((entries) => {
+            setRecipes(entries.items);
+            console.log(entries);
+          });
+        }, []);
     return (
         <Fragment>
         <div class="carousel-inner" role="listbox">
@@ -18,6 +29,8 @@ export default function Main() {
                 Whatever you need
             </h2>
             </div>
+        </div>
+        <div className="cards">
         </div>
         <div class="home-newsletter">
         <div class="container">
