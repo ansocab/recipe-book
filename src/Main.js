@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Fragment } from 'react';
 import './Main.css';
+import Cards from './Cards';
+
 var contentful = require('contentful');
 export default function Main() {
     const [recipes, setRecipes] = useState([]);
@@ -28,9 +30,8 @@ export default function Main() {
             <h2 class="main-title title-text text-center text-uppercase mb-5">
                 Whatever you need
             </h2>
+            <Cards recipes={recipes}/>
             </div>
-        </div>
-        <div className="cards">
         </div>
         <div class="home-newsletter">
         <div class="container">
