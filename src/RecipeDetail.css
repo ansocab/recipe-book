@@ -1,0 +1,199 @@
+.wrap-container {
+    background-image: url('./images/bg_recipes.png');
+}
+
+.container {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* Text */
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,600&display=swap');
+
+h1 {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-family: "CrimsonText";
+}
+
+h2 {
+    padding-bottom: 1rem;
+    font-family: "CrimsonText";
+    font-style: normal;
+}
+
+p {
+    padding-bottom: 5%;
+}
+
+.difficultyIndication svg {
+    font-size: 0.8em;
+    margin: 2px;
+}
+
+
+/* Number circles in Preparation part */
+
+.background-circle {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    border-radius: 20px;
+    background-color: rgba(90, 38, 83);
+}
+
+.background-circle h2 {
+    color: white;
+    font-size: 1.4em;
+}
+
+@media screen and (max-width: 767px) {
+    div.container h1 {
+      font-size: 4em;
+      padding-left: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      line-height: 1em;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    div.container h1 {
+        font-size: 3em;
+    }
+
+    .background-circle {
+        height: 24px;
+        width: 24px;
+        border-radius: 15px;
+    }
+
+    .background-circle h2 {
+        font-size: 1.2em;
+    }
+}
+
+
+/* Media queries, specially for carousel images: */
+
+/* Small mobile */
+.carousel-image-height {
+    height: 200px;
+    width: 300px;
+}
+
+.carousel-width {
+    width: 300px;
+}
+
+/* Mobile */
+@media only screen and (min-width: 480px) {
+    .carousel-image-height {
+        height: 300px;
+        width: 450px;
+    }
+
+    .carousel-width {
+        width: 450px;
+    }
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 576px) {
+    .carousel-image-height {
+        height: 340px;
+        width: 510px;
+    }
+
+    .carousel-width {
+        width: 510px;
+    }
+}
+
+/* Tablet landscape */
+@media only screen and (min-width: 768px) {
+    .carousel-image-height {
+        height: 380px;
+        width: 570px;
+    }
+
+    .carousel-width {
+        width: 570px;
+    }
+
+    .container h1 {
+        font-size: 4em;
+    }
+}
+
+/* Laptop */
+@media only screen and (min-width: 992px) {
+    .carousel-image-height {
+        height: 460px;
+        width: 690px;
+    }
+
+    .carousel-width {
+        width: 690px;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+    .carousel-image-height {
+        height: 550px;
+        width: 825px;
+    }
+
+    .carousel-width {
+        width: 825px;
+    }
+}
+
+
+/* Carousel control and indicators */
+.recipe-control-icon {
+    font-size: 2.5em;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+
+/* Ingredients quantity column width */
+.ingredientsTable td:nth-of-type(2) {
+    min-width: 5rem;
+  }
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: rgba(124, 102, 158, 0.4);
+}
+
+input[type=checkbox] {
+    transform: scale(1.2);  
+}
+
+
+/* Loading spinner */
+
+.spinner-wrap {
+    background-image: url('./images/bg_recipes.png');
+    height: 1000px;
+}
+
+.scale-spinner {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 400px;
+}

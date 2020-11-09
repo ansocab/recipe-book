@@ -1,95 +1,52 @@
-import React, {useEffect, useState} from 'react';
-import { Container, Row, Col, Carousel, Table } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Container, Row, Col, Carousel, Table, Spinner } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faCircle as faCircleRegular } from "@fortawesome/free-regular-svg-icons";
-import { faCircle as faCircleSolid } from '@fortawesome/free-solid-svg-icons';
-import {useParams} from "react-router-dom";
-
-var contentful = require('contentful');
-
+import { faCircle as faCircleSolid, faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { useParams, useLocation } from "react-router-dom";
+import "./RecipeDetail.css";
 
 function DifficultyVisualisation({difficulty}) {
     switch (difficulty) {
         case "Easy":
             return (
-                <span>
+                <>
                     <FontAwesomeIcon icon={faCircleSolid}/>
                     <FontAwesomeIcon icon={faCircleRegular}/>
                     <FontAwesomeIcon icon={faCircleRegular}/>
-                </span>
+                </>
             )
         case "Medium":
             return (
-                <span>
+                <>
                     <FontAwesomeIcon icon={faCircleSolid}/>
                     <FontAwesomeIcon icon={faCircleSolid}/>
                     <FontAwesomeIcon icon={faCircleRegular}/>
-                </span>
+                </>
             )
         case "Hard":
             return (
-                <span>
+                <>
                     <FontAwesomeIcon icon={faCircleSolid}/>
                     <FontAwesomeIcon icon={faCircleSolid}/>
                     <FontAwesomeIcon icon={faCircleSolid}/>
-                </span>
+                </>
             )
         default:
-            return <span></span>
+            return <></>
     }
 }
-
-/*
-function CarouselImages({images}) {
-    return (
-        images.map((image) => (
-        <Carousel.Item>
-            <img className="d-block w-100 h-auto carousel-image" src={image.fields.file.url} alt={image.fields.title}/>   
-        </Carousel.Item>
-    ))
-    )
-}
-*/
-
-/*
-function IngredientRows({ingredients}) {
-    if (ingredients) {
-        return (
-            ingredients.map(([key, value]) => (
-                <tr>
-                    <td>{value}</td>
-                    <td>{key}</td>
-                </tr>
-            ))
-        )
-    } else {
-        return <></>
-    }
-}
-*/
 
 
 export default function RecipeDetail({recipes}) {
-    const {slug} = useParams();
-    console.log(slug)
-    const currentRecipe = recipes.filter(recipe => recipe.fields.slug === slug)
-    console.log(currentRecipe)
-    
-    /*
-    const [currentRecipe, setCurrentRecipe] = useState([]);
-    useEffect(() => {
-        var client = contentful.createClient({
-          space: process.env.REACT_APP_SPACE_ID,
-          accessToken: process.env.REACT_APP_ACCESS_TOKEN
-        });
-        client.getEntries().then((entries) => {
-            setCurrentRecipe(entries.items[2].fields);
-            console.log(currentRecipe)
-          });
-        }, []);
-*/
+    const { slug } = useParams();
+    const currentRecipe = recipes.find(recipe => recipe.fields.slug === slug)
 
-        
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     const formatDuration = (totalMinutes) => {
         const hours = Math.floor(totalMinutes / 60)
@@ -115,47 +72,83 @@ export default function RecipeDetail({recipes}) {
         return `${hourString} ${minuteString}`
     }
 
+    const splitIntoParagraphs = (text) => text.split("\n\n")
+
+
     if (currentRecipe) {
+        console.log(`current recipe: ${currentRecipe}`);
         return (
-            
+            <div className="wrap-container">
             <Container>
-                <Row className="pt-4">
-                    {console.log(`current title: ${currentRecipe.title}`)}
-                    <h1 className="pt-4 mt-2">{recipes.filter(recipe => recipe.fields.slug === slug).title}</h1>
+                <Row className="pt-1 pb-3">
+                    <h1>{currentRecipe.fields.title}</h1>
                 </Row>
                 <Row>
                     <Col md="auto">
                         <FontAwesomeIcon icon={faClock}/>
-                        <span className="pl-1">{formatDuration(currentRecipe.duration)}</span>
+                        <span className="pl-1">{formatDuration(currentRecipe.fields.duration)}</span>
                     </Col>
-                    <Col md="auto">
-                        <DifficultyVisualisation difficulty={currentRecipe.difficulty}/>
-                        <span className="pl-1">{currentRecipe.difficulty}</span>
+                    <Col md="auto" className="difficultyIndication">
+                        <DifficultyVisualisation difficulty={currentRecipe.fields.difficulty}/>
+                        <span className="pl-1">{currentRecipe.fields.difficulty}</span>
                     </Col>
                 </Row>
                 <Row className="pt-4 pb-4">
-                    <Carousel interval={null}>
-                        
+                    <Carousel interval={null} className="carousel-width"
+                    nextIcon={<FontAwesomeIcon icon={faChevronCircleRight} aria-hidden="true" className="recipe-control-icon"/>} 
+                    prevIcon={<FontAwesomeIcon icon={faChevronCircleLeft} aria-hidden="true" className="recipe-control-icon"/>}>
+                        {currentRecipe.fields.images.map((image) => {
+                            return  <Carousel.Item className="carousel-image-height overflow-hidden">
+                                        <img className="d-block w-100 h-100" src={image.fields.file.url} alt={image.fields.title}/>   
+                                    </Carousel.Item>
+                        })}
                     </Carousel>
                 </Row>
-                <Row>
-                    <Col className="col-12 col-sm-10 col-md-9 col-lg-5 pr-4">
-                        <h2 className="mb-1">Ingredients</h2>
-                        <Table striped bordered hover>  
-                            <tbody>      {/* Ingredients -> "map" over the object and create a table row for each ingredient*/}
-                                          
+                <Row className="pt-3 pb-5 justify-content-between">
+                    <Col className="col-12 col-md-12 col-lg-7 pl-0 pr-5">
+                        <h2>Preparation</h2>
+                        {splitIntoParagraphs(currentRecipe.fields.body).map((paragraph, index) => {
+                            return <Row>
+                                <Col className="col-1 ml-3 p-0 d-flex justify-content-center">
+                                    <div className="background-circle">
+                                        <h2 className="text-center">{index+1}</h2>
+                                    </div>
+                                </Col>
+                                <Col>{paragraph} <br /><br /> </Col>
+                            </Row>
+                        })
+                        
+                        }
+                    </Col>
+                    <Col className="col-10 col-sm-10 col-md-9 col-lg-5 pr-0">
+                        <h2>Ingredients</h2>
+                        <Table striped borderless className="ingredientsTable">  
+                            <tbody>
+                                 {Object.keys(currentRecipe.fields.ingredientList).map ((ingredient) => {
+                                     return <tr>
+                                                <td>
+                                                    <div class="mx-auto text-right">
+                                                        <input type="checkbox" aria-label="Checkbox for following ingredient"/>
+                                                    </div>
+                                                </td>
+                                                <td className="text-center">{currentRecipe.fields.ingredientList[ingredient]}</td>
+                                                <td>{ingredient}</td>
+                                            </tr>
+                                 })}        
                             </tbody>
                         </Table>
                     </Col>
-                    <Col className="col-12 col-md-12 col-lg-7">
-                        <h2 className="pb-2">Preparation</h2>       {/* Preparation -> Create a row with number and text for eacht paragraph*/}
-                        <p>{currentRecipe.body}</p>
-                    </Col>
                 </Row>
             </Container>
+            </div>
         )
     } else {
-        console.log("loading")
-        return <h2>Loading</h2>
+        return (
+            <div className="spinner-wrap">
+                <Spinner animation="border" variant="secondary" role="status" className="scale-spinner">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+            </div>
+          );
     }
 }
