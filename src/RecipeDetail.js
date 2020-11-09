@@ -80,15 +80,15 @@ export default function RecipeDetail({recipes}) {
         return (
             <div className="wrap-container">
             <Container>
-                <Row className="pt-1 pb-3">
+                <Row className="pt-4 pb-3">
                     <h1>{currentRecipe.fields.title}</h1>
                 </Row>
-                <Row>
-                    <Col md="auto">
+                <Row className="justify-content-center pb-2">
+                    <Col xs="auto" sm="auto">
                         <FontAwesomeIcon icon={faClock}/>
                         <span className="pl-1">{formatDuration(currentRecipe.fields.duration)}</span>
                     </Col>
-                    <Col md="auto" className="difficultyIndication">
+                    <Col xs="auto" sm="auto" className="difficultyIndication">
                         <DifficultyVisualisation difficulty={currentRecipe.fields.difficulty}/>
                         <span className="pl-1">{currentRecipe.fields.difficulty}</span>
                     </Col>
@@ -104,8 +104,8 @@ export default function RecipeDetail({recipes}) {
                         })}
                     </Carousel>
                 </Row>
-                <Row className="pt-3 pb-5 justify-content-between">
-                    <Col className="col-12 col-md-12 col-lg-7 pl-0 pr-5">
+                <Row>
+                    <Col className="col-12 col-md-12 col-lg-7 pt-4 preparation-column">
                         <h2>Preparation</h2>
                         {splitIntoParagraphs(currentRecipe.fields.body).map((paragraph, index) => {
                             return <Row>
@@ -120,7 +120,7 @@ export default function RecipeDetail({recipes}) {
                         
                         }
                     </Col>
-                    <Col className="col-10 col-sm-10 col-md-9 col-lg-5 pr-0">
+                    <Col className="col-10 col-sm-10 col-md-9 col-lg-5 mx-auto pt-4 pb-5 ingredients-column">
                         <h2>Ingredients</h2>
                         <Table striped borderless className="ingredientsTable">  
                             <tbody>
