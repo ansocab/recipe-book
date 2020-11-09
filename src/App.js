@@ -31,7 +31,7 @@ function App() {
             <Main recipes={recipes}/>
           </Route>
           <Route path="/:slug">
-            <RecipeDetail recipes={recipes}/>
+            <RecipeDetail recipes={recipes} />
           </Route>
       </Switch>
       <Footer />
