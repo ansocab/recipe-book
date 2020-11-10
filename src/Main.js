@@ -17,13 +17,10 @@ export default function Main({recipes}) {
             <h2 class="main-title title-text text-center text-uppercase">
                 Amazing Health Solution
             </h2>
-            <h2 class="main-title title-text text-center text-uppercase mb-5">
-                Whatever you need
-            </h2>
             <Cards recipes={recipes}/>
             </div>
         </div>
-        <div class="home-newsletter">
+        <div id ="home-newsletter" class="home-newsletter">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 newsletter-box">
