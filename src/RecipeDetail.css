@@ -112,6 +112,9 @@ p {
     .carousel-width {
         width: 450px;
     }
+    video {
+        width: 450px;
+    }
 }
 
 /* Tablet */
@@ -122,6 +125,9 @@ p {
     }
 
     .carousel-width {
+        width: 510px;
+    }
+    video {
         width: 510px;
     }
 }
@@ -140,6 +146,9 @@ p {
     .container h1 {
         font-size: 4em;
     }
+    video {
+        width: 570px;
+    }
 }
 
 /* Laptop */
@@ -152,6 +161,9 @@ p {
     .carousel-width {
         width: 690px;
     }
+    video {
+        width: 690px;
+    }
 }
 
 /* Desktop */
@@ -162,6 +174,9 @@ p {
     }
 
     .carousel-width {
+        width: 825px;
+    }
+    video {
         width: 825px;
     }
 }
