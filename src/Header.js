@@ -1,6 +1,9 @@
 import React from 'react';
 import { Fragment } from 'react';
 import './Header.css';
+import {Link} from "react-router-dom";
+import { HashLink } from 'react-router-hash-link'
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
@@ -19,7 +22,19 @@ export default function Header() {
         </div>
     </div>
     
-    <nav className="navbar navbar-top navbar-expand-lg navbar-light justify-content-center">
+    <Navbar className="navbar-top navbar-expand-lg navbar-light justify-content-center">
+        
+        <Nav className="m-auto">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <NavDropdown title="Recipes" id="basic-nav-dropdown">
+                <NavDropdown.Item as={HashLink} to="/#breakfast">Breakfast</NavDropdown.Item>
+                <NavDropdown.Item as={HashLink} to="/#lunch">Lunch</NavDropdown.Item>
+                <NavDropdown.Item as={HashLink} to="/#dinner">Dinner</NavDropdown.Item>
+                <NavDropdown.Item as={HashLink} to="/#dessert">Dessert</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link as={HashLink} to="/#home-newsletter">Subscription</Nav.Link>
+        </Nav>
+
         <div className="container sidebar d-none d-lg-block">
             <div className="row sidebarSocial justify-content-end align-items-center">
                 <span className="fa fa-facebook" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></span>
@@ -30,28 +45,11 @@ export default function Header() {
                 <span className="fa fa-heart" target="_blank"><FontAwesomeIcon icon={faHeart} /></span>
                 </div>
             </div>
-        <a className="navbar-brand"></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav m-auto">
-                <li className="nav-item active pr-5">
-                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item pr-5">
-                    <a className="nav-link nav-color" href="#">Recipes</a>
-                </li>
-                <li className="nav-item  pr-5">
-                    <a className="nav-link nav-color" href="#">Favorite</a>
-                </li>
-                <li className="nav-item pr-5">
-                    <a className="nav-link nav-color" href="#">Contact</a>
-                </li>
-            </ul>
-            </div>
-    </nav>
+    </Navbar>
     </Fragment>
     )
     
