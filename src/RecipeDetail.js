@@ -5,6 +5,7 @@ import { faClock, faCircle as faCircleRegular } from "@fortawesome/free-regular-
 import { faCircle as faCircleSolid, faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useLocation } from "react-router-dom";
 import "./RecipeDetail.css";
+import video from "./images/video.mp4";
 
 function DifficultyVisualisation({difficulty}) {
     switch (difficulty) {
@@ -138,6 +139,9 @@ export default function RecipeDetail({recipes}) {
                             </tbody>
                         </Table>
                     </Col>
+                </Row>
+                <Row className="justify-content-center pb-5">
+                <video controls autostart autoPlay src={video} type="video/mp4" />
                 </Row>
             </Container>
             </div>
