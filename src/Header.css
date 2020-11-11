@@ -11,9 +11,22 @@
     cursor: pointer;
     background-color: #dff1d9 !important;
   }
-  
-  .nav-color {
-    color: #22201f !important;
+
+  .navbar-top a, button {
+    color: #404040 !important;
+  }
+
+  .navbar-top a:hover, button:hover {
+    color:  #a80d0d !important;
+  }
+
+  .navbar-top button {
+    border: none;
+    background: none;
+    margin: none;
+    outline: none;
+    padding-right: 18px;
+    padding-left: 0;
   }
   
   .search {
@@ -32,16 +45,9 @@
     right: 50px;
   }
   
-  .sidebarSocial span {
+  .sidebarSocial a {
     font-size: 21px;
-    color: #404040;
     padding-right: 18px;
     text-align: right;
     cursor: pointer;
   }
-  
-  .sidebarSocial span:hover {
-    color: #a80d0d;
-  }
-  
-  
