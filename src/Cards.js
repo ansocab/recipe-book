@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './Cards.css';
 import {Link} from "react-router-dom";
 
-export default function Cards({recipes}) {
+export default function Cards({searchResults, recipes}) {
     const config = {
         dots: true,
         infinite: true,
@@ -41,8 +41,23 @@ export default function Cards({recipes}) {
       };
 
     const getRecipe = (elem) => {
-        
-        {console.log('test')}
+      if (elem === "Search") {
+        return (<div className="cards">
+       <Slider {...settings}>
+        {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
+        .map((recipe) => {
+          return <div key={recipe.fields.slug} className="img-card">
+            <img className="img" src={recipe.fields.images[0].fields.file.url}/>
+            <div class="card-body">
+              <div className="card-title">{recipe.fields.slug}</div>
+              <div className="card-text">{recipe.fields.description}</div>
+            </div>
+             <Link to={recipe.fields.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
+          </div>
+        })}
+      </Slider>
+      </div> ) 
+      } else {
         return (<div className="cards">
        <Slider {...settings}>
         {recipes.filter(recipe => recipe.fields.meals === elem)
@@ -58,7 +73,7 @@ export default function Cards({recipes}) {
         })}
       </Slider>
       </div> ) 
-    
+      }
     }
 
      
@@ -67,6 +82,8 @@ export default function Cards({recipes}) {
 
     return (
         <>
+    <h1 id="breakfast">Search results</h1>
+    {getRecipe("Search")}
     <h1 id="breakfast">Breakfast</h1>
     {getRecipe("Breakfast")}
       <h1 id="lunch">Lunch</h1>
