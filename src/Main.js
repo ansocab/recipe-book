@@ -1,10 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import { Fragment } from 'react';
+import Search from "./Search.js";
 import './Main.css';
 import Cards from './Cards';
 
 
 export default function Main({recipes}) {
+    const [searchResults, setSearchResults] = useState([]);
+
+    const updateSearchResults = (results) => {
+        console.log("I was called!", results)
+        setSearchResults(results);
+    }
     
     return (
         <Fragment>
@@ -14,10 +21,11 @@ export default function Main({recipes}) {
             <div class="section-icon d-flex justify-content-center mb-3">
                 <img src="icon4.png" alt=""/>
             </div>
+            <Search callback={updateSearchResults}/>
             <h2 class="main-title title-text text-center text-uppercase">
                 Amazing Health Solution
             </h2>
-            <Cards recipes={recipes}/>
+            <Cards searchResults={searchResults} recipes={recipes}/>
             </div>
         </div>
         <div id ="home-newsletter" class="home-newsletter">
