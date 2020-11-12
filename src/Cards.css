@@ -198,6 +198,10 @@
     border: none;
 }
 
+#lunch, #dinner, #dessert {
+    margin-top: 3rem;
+}
+
 
 /* Small mobile */
 @media only screen and (min-width: 300px) {

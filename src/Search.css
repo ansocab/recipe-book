@@ -1,16 +1,48 @@
 .search-container {
-    border: 1px solid black;
+    border: 1px solid rgba(33,36,61,.8);
     border-radius: 5px;
-    width: 40%;
+    width: 400px;
     height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 6px;
 }
 
+span {
+    color: rgba(33,36,61, .8);
+    font-size: 12px;
+    padding-right: 5px;
+}
+
+.algolia-logo {
+    height:15px;
+}
+
+
 .search-container input {
-    width: 200px;
+    width: 250px;
     border: none;
     background-color: transparent;
     outline: none;
+}
+
+@media (max-width: 494px) {
+.search-container {
+    width: 280px;
+}
+.search-container input {
+    width: 140px;
+}
+
+.search-container input {
+    width: 120px;
+}
+.algolia-logo {
+    height:14px;
+}
+span {
+    font-size: 11px;
+    padding-right: 0;
+}
 }

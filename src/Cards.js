@@ -70,7 +70,7 @@ export default function Cards({searchResults, recipes}) {
                 return <div key={recipe.fields.slug} className="img-card">
                   <img className="img" src={recipe.fields.images[0].fields.file.url}/>
                   <div class="card-body">
-                    <div className="card-title">{recipe.fields.slug}</div>
+                    <div className="card-title">{recipe.fields.title}</div>
                     <div className="card-text">{recipe.fields.description}</div>
                   </div>
                   <Link to={recipe.fields.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
@@ -96,7 +96,7 @@ export default function Cards({searchResults, recipes}) {
             </div>
             </div>
             <div class="card-body">
-              <div className="card-title">{recipe.fields.slug}</div>
+              <div className="card-title">{recipe.fields.title}</div>
               <div className="card-text">{recipe.fields.description}</div>
             </div>
              <Link to={recipe.fields.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
