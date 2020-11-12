@@ -14,7 +14,7 @@ export default function Search({callback}) {
     useEffect(()=>{
         if (firstRun) {
             setFirstRun(false);
-            const searchClient = algoliasearch('WD743MPV8P', '57c93452b38e95ff4a03a2aab12eb473');
+            const searchClient = algoliasearch(process.env.REACT_APP_APPLICATION_ID, process.env.REACT_APP_SEARCH_API_KEY);
             setIndex(searchClient.initIndex('recipebook'));
         } else {
             if (input.length) {

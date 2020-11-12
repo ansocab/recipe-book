@@ -104,7 +104,7 @@ export default function Cards({searchResults, recipes}) {
 
     const getSearchRecipes = (elem) => {
       return (
-        <>
+        <div className="searchResults-container">
           <h1 id="search">Search results</h1>
           <div className="cards-search">
             <Slider {...recipeConfig}>
@@ -121,7 +121,7 @@ export default function Cards({searchResults, recipes}) {
               })}
             </Slider>
           </div> 
-        </>) 
+        </div>) 
     }
 
     const getRecipe = (elem) => {
