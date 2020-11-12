@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import algoliasearch from 'algoliasearch/lite';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import algoliaImage from "./images/search-by-algolia-light-background.png"
+import algoliaImage from "./images/logo-algolia-blue-35c461b6.svg"
 import "./Search.css";
 
 export default function Search({callback}) {
@@ -35,7 +35,8 @@ export default function Search({callback}) {
         <Container className="search-container">
             <FontAwesomeIcon icon={faSearch}/>
             <input type="text" onChange={handleChange} value={input}></input>
-            <img src={algoliaImage} alt="algolia search logo" />
+            <span>Search by</span>
+            <img className="algolia-logo" src={algoliaImage} alt="algolia search logo" />
         </Container>
     )
 }
