@@ -145,7 +145,9 @@ export default function RecipeDetail({recipes}) {
                     </Col>
                 </Row>
                 <Row className="justify-content-center pb-5">
-                <video controls autostart autoPlay src={video} type="video/mp4" />
+                    <div className="video-container">
+                        <video controls autostart autoPlay src={video} type="video/mp4" />
+                    </div>
                 </Row>
             </Container>
             </div>
