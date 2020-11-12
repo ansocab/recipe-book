@@ -14,6 +14,10 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Header() {
+    function handleClick() {
+        window.open('mailto:recipe-book@example.com')
+    }
+
     return (
     <Fragment>
     <div className="search col d-flex align-items-center justify-content-center">
@@ -37,12 +41,12 @@ export default function Header() {
 
         <div className="container sidebar d-none d-lg-block">
             <div className="row sidebarSocial justify-content-end align-items-center">
-                <span className="fa fa-facebook" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></span>
-                <span className="fa fa-pinterest" target="_blank"><FontAwesomeIcon icon={faPinterest} /></span>
-                <span className="fa fa-instagram" target="_blank"><FontAwesomeIcon icon={faInstagram} /></span>
-                <span className="fa fa-facebook-f" target="_blank"><FontAwesomeIcon icon={faTwitter} /></span>
-                <span className="fa fa-envelope" target="_blank"><FontAwesomeIcon icon={faEnvelope} /></span>
-                <span className="fa fa-heart" target="_blank"><FontAwesomeIcon icon={faHeart} /></span>
+                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebookF} /></a>
+                <a href="https://www.pinterest.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faPinterest} /></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /></a>
+                <a href="https://twitter.com/?lang=en" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /></a>
+                <button onClick={handleClick}><FontAwesomeIcon icon={faEnvelope} /></button>
+                <button disabled><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
             </div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
