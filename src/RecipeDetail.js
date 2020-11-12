@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col, Carousel, Table, Spinner } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faCircle as faCircleRegular } from "@fortawesome/free-regular-svg-icons";
+import { faClock, faCircle as faCircleRegular, faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 import { faCircle as faCircleSolid, faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useLocation } from "react-router-dom";
 import "./RecipeDetail.css";
@@ -93,6 +93,10 @@ export default function RecipeDetail({recipes}) {
                         <DifficultyVisualisation difficulty={currentRecipe.fields.difficulty}/>
                         <span className="pl-1">{currentRecipe.fields.difficulty}</span>
                     </Col>
+                    <Col xs="auto" sm="auto">
+                        <FontAwesomeIcon icon={faCalendarAlt}/>
+                        <span className="pl-2">{currentRecipe.fields.publishDate}</span>
+                    </Col>
                 </Row>
                 <Row className="pt-4 pb-4">
                     <Carousel interval={null} className="carousel-width"
@@ -128,7 +132,7 @@ export default function RecipeDetail({recipes}) {
                                  {Object.keys(currentRecipe.fields.ingredientList).map ((ingredient) => {
                                      return <tr>
                                                 <td>
-                                                    <div class="mx-auto text-right">
+                                                    <div className="mx-auto text-right">
                                                         <input type="checkbox" aria-label="Checkbox for following ingredient"/>
                                                     </div>
                                                 </td>
