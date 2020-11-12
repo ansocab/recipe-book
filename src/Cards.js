@@ -62,6 +62,7 @@ export default function Cards({searchResults, recipes}) {
               {
                 breakpoint: 1024,
                 settings: {
+                  variableWidth: true,
                   slidesToShow: searchResults.length,
                   slidesToScroll: searchResults.length
                 }
@@ -69,6 +70,7 @@ export default function Cards({searchResults, recipes}) {
               {
                 breakpoint: 768,
                 settings: {
+                  variableWidth: true,
                   slidesToShow: searchResults.length,
                   slidesToScroll: searchResults.length,
                   initialSlide: searchResults.length
@@ -77,6 +79,7 @@ export default function Cards({searchResults, recipes}) {
             {
               breakpoint: 600,
               settings: {
+                variableWidth: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
               }
@@ -103,7 +106,7 @@ export default function Cards({searchResults, recipes}) {
       return (
         <>
           <h1 id="search">Search results</h1>
-          <div className="cards">
+          <div className="cards-search">
             <Slider {...recipeConfig}>
               {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
               .map((recipe) => {

@@ -35,7 +35,7 @@ export default function Search({callback}) {
         <Container className="search-container">
             <FontAwesomeIcon icon={faSearch}/>
             <input type="text" onChange={handleChange} value={input}></input>
-            <span>Search by</span>
+            <span className="span-search">Search by</span>
             <img className="algolia-logo" src={algoliaImage} alt="algolia search logo" />
         </Container>
     )
