@@ -110,7 +110,7 @@ export default function Cards({searchResults, recipes}) {
             <Slider {...recipeConfig}>
               {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
               .map((recipe) => {
-                return <div key={recipe.fields.slug} className="img-card">
+                return <div key={recipe.fields.slug} className="img-card bg">
                   <img className="img" src={recipe.fields.images[0].fields.file.url}/>
                   <div class="card-body">
                     <div className="card-title">{recipe.fields.title}</div>
@@ -155,6 +155,7 @@ export default function Cards({searchResults, recipes}) {
 
     return (
         <>
+        
         {showResults ? getSearchRecipes("Search") : null}
     <h1 id="breakfast">Breakfast</h1>
     <hr className="br-line"></hr>
