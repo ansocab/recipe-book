@@ -19,9 +19,10 @@ function App() {
         });
         client.getEntries().then((entries) => {
             setRecipes(entries.items);
-          });
+          })
+        .catch((err) => alert("error"));
         }, []);
-  
+
   return (
     <div className="App">
       <Header />

@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { Container, Row, Col, Carousel, Table, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Carousel, Table} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faCircle as faCircleRegular, faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 import { faCircle as faCircleSolid, faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useLocation } from "react-router-dom";
 import "./RecipeDetail.css";
 import video from "./images/video.mp4";
+import Spinner from "./Spinner"
 
 function DifficultyVisualisation({difficulty}) {
     switch (difficulty) {
@@ -154,11 +155,7 @@ export default function RecipeDetail({recipes}) {
         )
     } else {
         return (
-            <div className="spinner-wrap">
-                <Spinner animation="border" variant="secondary" role="status" className="scale-spinner">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
-            </div>
+            <Spinner />
           );
     }
 }
