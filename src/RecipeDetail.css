@@ -10,6 +10,10 @@
     margin: 0 auto;
 }
 
+.container span {
+    font-size: 100%;
+}
+
 @media screen and (min-width: 992px) {
     .preparation-column {
         padding-right: 5em;
@@ -25,6 +29,7 @@ h1 {
     margin-bottom: 0px;
     font-family: "CrimsonText";
     margin: auto;
+    text-align: center;
 }
 
 h2 {
@@ -90,7 +95,7 @@ p {
 }
 
 
-/* Media queries, specially for carousel images: */
+/* Media queries, specially for carousel images and video */
 
 /* Small mobile */
 .carousel-image-height {
@@ -104,6 +109,7 @@ p {
 
 video {
     width: 300px;
+    height: auto;
 }
 
 /* Mobile */

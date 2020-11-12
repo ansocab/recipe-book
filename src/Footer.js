@@ -21,6 +21,7 @@ export default function Header() {
                     <Col className="col-12 col-sm-4 pt-4">
                         <h5>Powered by</h5>
                         <div>Contentful</div>
+                        <div>Algolia</div>
                         <div>React JS</div>
                         <div>HTML5</div>
                         <div>CSS3</div>
