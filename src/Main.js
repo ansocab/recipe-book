@@ -9,7 +9,6 @@ export default function Main({recipes}) {
     const [searchResults, setSearchResults] = useState([]);
 
     const updateSearchResults = (results) => {
-        console.log("I was called!", results)
         setSearchResults(results);
     }
     

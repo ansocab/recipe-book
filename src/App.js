@@ -17,7 +17,6 @@ function App() {
           space: process.env.REACT_APP_SPACE_ID,
           accessToken: process.env.REACT_APP_ACCESS_TOKEN
         });
-        console.log(client)
         client.getEntries().then((entries) => {
             setRecipes(entries.items);
           });

@@ -47,12 +47,52 @@ export default function Cards({searchResults, recipes}) {
           ]
       };
 
+
     const [showResults, setShowResults] = useState(false);
+    const [recipeConfig, setRecipeConfig] = useState({});
+
   
     useEffect(() => {
-      console.log(showResults)
-      if (searchResults) {
+      if (searchResults.length) {
         setShowResults(true)
+        if (searchResults.length < 3) {
+          setRecipeConfig({...config,
+            slidesToShow: searchResults.length,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: searchResults.length,
+                  slidesToScroll: searchResults.length
+                }
+              },
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: searchResults.length,
+                  slidesToScroll: searchResults.length,
+                  initialSlide: searchResults.length
+                }
+              },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+            ]
+          })
+        } else {
+          setRecipeConfig(config)
+        }
       } else {
         setShowResults(false)
       }
@@ -64,7 +104,7 @@ export default function Cards({searchResults, recipes}) {
         <>
           <h1 id="search">Search results</h1>
           <div className="cards">
-            <Slider {...settings}>
+            <Slider {...recipeConfig}>
               {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
               .map((recipe) => {
                 return <div key={recipe.fields.slug} className="img-card">
