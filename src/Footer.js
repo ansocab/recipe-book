@@ -13,7 +13,7 @@ export default function Header() {
                         <h5>Created by</h5>
                         <div>Lidia Chebotarova</div>
                         <span className="p-2"><a href="https://github.com/lidiyacheb" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub}/></a></span>
-                        <span className="p-2"><a href="https://linkedin.com/in/ana-sofia-caballero" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedinIn}/></a></span>
+                        <span className="p-2"><a href="https://linkedin.com/in/lidia-chebotarova-4224a0159/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedinIn}/></a></span>
                         <div className="pt-3">Ana Sofia Caballero</div>
                         <span className="p-2"><a href="https://github.com/ansocab" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub}/></a></span>
                         <span className="p-2"><a href="https://linkedin.com/in/ana-sofia-caballero" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedinIn}/></a></span>

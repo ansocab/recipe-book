@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import Search from "./Search.js";
 import './Main.css';
 import Cards from './Cards';
-
+import Spinner from "./Spinner";
 
 export default function Main({recipes}) {
     const [searchResults, setSearchResults] = useState([]);
@@ -11,6 +11,15 @@ export default function Main({recipes}) {
     const updateSearchResults = (results) => {
         setSearchResults(results);
     }
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (recipes.length) {
+            setLoading(true)
+        }
+        else {
+            setLoading(false)}
+      }, [recipes]); 
     
     return (
         <Fragment>
@@ -24,7 +33,7 @@ export default function Main({recipes}) {
             <h2 class="main-title title-text text-center text-uppercase">
                 Amazing Health Solution
             </h2>
-            <Cards searchResults={searchResults} recipes={recipes}/>
+            {loading ? <Cards searchResults={searchResults} recipes={recipes}/> : <Spinner /> }
             </div>
         </div>
         <div id ="home-newsletter" class="home-newsletter">
