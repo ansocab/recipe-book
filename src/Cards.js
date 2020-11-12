@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -47,24 +47,41 @@ export default function Cards({searchResults, recipes}) {
           ]
       };
 
-    const getRecipe = (elem) => {
-      if (elem === "Search") {
-        return (<div className="cards">
-       <Slider {...settings}>
-        {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
-        .map((recipe) => {
-          return <div key={recipe.fields.slug} className="img-card">
-            <img className="img" src={recipe.fields.images[0].fields.file.url}/>
-            <div class="card-body">
-              <div className="card-title">{recipe.fields.slug}</div>
-              <div className="card-text">{recipe.fields.description}</div>
-            </div>
-             <Link to={recipe.fields.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
-          </div>
-        })}
-      </Slider>
-      </div> ) 
+    const [showResults, setShowResults] = useState(false);
+  
+    useEffect(() => {
+      console.log(showResults)
+      if (searchResults) {
+        setShowResults(true)
       } else {
+        setShowResults(false)
+      }
+    }, [searchResults])
+    
+
+    const getSearchRecipes = (elem) => {
+      return (
+        <>
+          <h1 id="search">Search results</h1>
+          <div className="cards">
+            <Slider {...settings}>
+              {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
+              .map((recipe) => {
+                return <div key={recipe.fields.slug} className="img-card">
+                  <img className="img" src={recipe.fields.images[0].fields.file.url}/>
+                  <div class="card-body">
+                    <div className="card-title">{recipe.fields.slug}</div>
+                    <div className="card-text">{recipe.fields.description}</div>
+                  </div>
+                  <Link to={recipe.fields.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
+                </div>
+              })}
+            </Slider>
+          </div> 
+        </>) 
+    }
+
+    const getRecipe = (elem) => {
         return (<div className="cards">
        <Slider {...settings}>
         {recipes.filter(recipe => recipe.fields.meals === elem)
@@ -87,7 +104,6 @@ export default function Cards({searchResults, recipes}) {
         })}
       </Slider>
       </div> ) 
-      }
     }
 
      
@@ -96,8 +112,7 @@ export default function Cards({searchResults, recipes}) {
 
     return (
         <>
-    <h1 id="breakfast">Search results</h1>
-    {getRecipe("Search")}
+        {showResults ? getSearchRecipes("Search") : null}
     <h1 id="breakfast">Breakfast</h1>
     <hr className="br-line"></hr>
     {getRecipe("Breakfast")}

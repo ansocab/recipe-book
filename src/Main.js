@@ -18,10 +18,10 @@ export default function Main({recipes}) {
         <div class="carousel-inner" role="listbox">
 
         <div class="wrap container-fluid full">
-            <div class="section-icon d-flex justify-content-center mb-3">
+            <Search callback={updateSearchResults}/>
+            <div class="section-icon d-flex justify-content-center mb-3 mt-4">
                 <img src="icon4.png" alt=""/>
             </div>
-            <Search callback={updateSearchResults}/>
             <h2 class="main-title title-text text-center text-uppercase">
                 Amazing Health Solution
             </h2>
