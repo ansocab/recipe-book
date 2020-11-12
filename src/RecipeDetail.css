@@ -96,6 +96,11 @@ p {
 
 
 /* Media queries, specially for carousel images and video */
+.video-container video {
+    height: 100%;
+    width: 100%;
+    outline: none;
+}
 
 /* Small mobile */
 .carousel-image-height {
@@ -107,9 +112,9 @@ p {
     width: 300px;
 }
 
-video {
+.video-container {
+    height: 169px;
     width: 300px;
-    height: auto;
 }
 
 /* Mobile */
@@ -122,7 +127,9 @@ video {
     .carousel-width {
         width: 450px;
     }
-    video {
+    
+    .video-container {
+        height: 253px;
         width: 450px;
     }
 }
@@ -137,7 +144,9 @@ video {
     .carousel-width {
         width: 510px;
     }
-    video {
+
+    .video-container {
+        height: 287px;
         width: 510px;
     }
 }
@@ -156,7 +165,9 @@ video {
     .container h1 {
         font-size: 4em;
     }
-    video {
+
+    .video-container {
+        height: 321px;
         width: 570px;
     }
 }
@@ -171,7 +182,9 @@ video {
     .carousel-width {
         width: 690px;
     }
-    video {
+
+    .video-container {
+        height: 389px;
         width: 690px;
     }
 }
@@ -186,7 +199,8 @@ video {
     .carousel-width {
         width: 825px;
     }
-    video {
+    .video-container {
+        height: 465px;
         width: 825px;
     }
 }
