@@ -23,11 +23,18 @@ export default function Cards({searchResults, recipes}) {
               }
             },
             {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                  initialSlide: 2
+                }
+              },
+            {
               breakpoint: 600,
               settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
+                slidesToShow: 1,
+                slidesToScroll: 1,
               }
             },
             {
@@ -63,7 +70,14 @@ export default function Cards({searchResults, recipes}) {
         {recipes.filter(recipe => recipe.fields.meals === elem)
         .map((recipe) => {
           return <div key={recipe.fields.slug} className="img-card">
+              <div className="content">
+             <div className="content-overlay"></div> 
             <img className="img" src={recipe.fields.images[0].fields.file.url}/>
+            <div class="content-details fadeIn-left">
+            <h4 className="content-title">{recipe.fields.duration} minutes</h4>
+            <p>{recipe.fields.difficulty}</p>
+            </div>
+            </div>
             <div class="card-body">
               <div className="card-title">{recipe.fields.slug}</div>
               <div className="card-text">{recipe.fields.description}</div>
@@ -85,12 +99,16 @@ export default function Cards({searchResults, recipes}) {
     <h1 id="breakfast">Search results</h1>
     {getRecipe("Search")}
     <h1 id="breakfast">Breakfast</h1>
+    <hr className="br-line"></hr>
     {getRecipe("Breakfast")}
       <h1 id="lunch">Lunch</h1>
+      <hr className="br-line"></hr>
       {getRecipe("Lunch")}
       <h1 id="dinner">Dinner</h1>
+      <hr className="br-line"></hr>
       {getRecipe("Dinner")}
       <h1 id="dessert">Dessert</h1>
+      <hr className="br-line"></hr>
       {getRecipe("Dessert")}
         </>
     );
