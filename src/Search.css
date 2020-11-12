@@ -9,9 +9,9 @@
     padding: 6px;
 }
 
-span {
+.span-search {
     color: rgba(33,36,61, .8);
-    font-size: 12px;
+    font-size: 12px!important;
     padding-right: 5px;
 }
 
