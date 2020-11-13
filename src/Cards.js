@@ -102,7 +102,12 @@ export default function Cards({searchResults, recipes}) {
     }, [searchResults])
     
 
-    const getSearchRecipes = (elem) => {
+    const getSearchRecipes = () => {
+      if (searchResults[0] === "noResults") {
+        return (
+            <h1 id="search" className="pb-5">No search results</h1>
+        )
+      } else {
       return (
         <>
           <h1 id="search">Search results</h1>
@@ -122,6 +127,7 @@ export default function Cards({searchResults, recipes}) {
             </Slider>
           </div> 
         </>) 
+      }
     }
 
     const getRecipe = (elem) => {
@@ -155,7 +161,7 @@ export default function Cards({searchResults, recipes}) {
 
     return (
         <>
-        {showResults ? getSearchRecipes("Search") : null}
+        {showResults ? getSearchRecipes() : null}
     <h1 id="breakfast">Breakfast</h1>
     <hr className="br-line"></hr>
     {getRecipe("Breakfast")}

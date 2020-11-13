@@ -10,6 +10,7 @@ export default function Search({callback}) {
     const [input, setInput] = useState('');
     const [firstRun, setFirstRun] = useState(true);
     const [index, setIndex] = useState(null);
+    //const [searchStatus, setSearchStatus] = useState("noSearch");
 
     useEffect(()=>{
         if (firstRun) {
@@ -19,7 +20,7 @@ export default function Search({callback}) {
         } else {
             if (input.length) {
                 index.search(input).then(({ hits }) => {
-                    callback(hits.map(recipe => recipe.sys.id))
+                    hits.length ? callback(hits.map(recipe => recipe.sys.id)) : callback(["noResults"])
                 });
             } else {
                 callback([]);
