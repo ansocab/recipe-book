@@ -75,10 +75,14 @@ export default function RecipeDetail({recipes}) {
     }
 
     const splitIntoParagraphs = (text) => text.split("\n\n")
+    
+    const convertDate = (date) => {
+        const dateSplit = date.split("-")
+        return `${dateSplit[2].substring(0,2)}/${dateSplit[1]}/${dateSplit[0]}`
+    }
 
 
     if (currentRecipe) {
-        console.log(`current recipe: ${currentRecipe}`);
         return (
             <div className="wrap-container">
             <Container>
@@ -96,7 +100,7 @@ export default function RecipeDetail({recipes}) {
                     </Col>
                     <Col xs="auto" sm="auto">
                         <FontAwesomeIcon icon={faCalendarAlt}/>
-                        <span className="pl-2">{currentRecipe.fields.publishDate}</span>
+                        <span className="pl-2">{convertDate(currentRecipe.fields.publishDate)}</span>
                     </Col>
                 </Row>
                 <Row className="pt-4 pb-4">
