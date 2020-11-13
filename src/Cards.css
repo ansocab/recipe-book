@@ -10,6 +10,7 @@
   .cb-centermode input {
     margin-right: 7px;
   }
+
    
   /* card style start */
    
@@ -28,6 +29,13 @@
   .img-card:hover {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   }
+
+  .bg {
+    background-color: rgb(59, 58, 58);
+    color: white;
+    margin: 0 auto;
+    width: 250px!important;
+}
    
   .img {
     width: 100%;
@@ -198,8 +206,12 @@
     border: none;
 }
 
-#lunch, #dinner, #dessert {
+#breakfast, #lunch, #dinner, #dessert {
     margin-top: 3rem;
+}
+
+#search {
+    margin-bottom:20px;
 }
 
 
@@ -263,7 +275,15 @@
       }
 
      .content-title {
-        width: 230px;
+        width: 250px;
+    }
+    .cards-search{
+        width: 550px;
+        margin: 0 auto;
+    }
+
+    .bg {
+        width: 230px!important;
     }
       .slick-prev:before, .slick-next:before {
         font-size: 30px;
@@ -286,7 +306,12 @@
       }
 
     .cards-search{
-        width: 600px;
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    .bg {
+        width: 230px!important;
     }
     .card-text {
         font-size: 15px;
@@ -315,6 +340,14 @@
         width: 850px;
 
       }
+      .cards-search{
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .bg {
+        width: 250px!important;
+    }
       .card-text {
         font-size: 16px;
       }

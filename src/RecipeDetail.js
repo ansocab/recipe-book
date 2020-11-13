@@ -75,12 +75,10 @@ export default function RecipeDetail({recipes}) {
     }
 
     const splitIntoParagraphs = (text) => text.split("\n\n")
-    
     const convertDate = (date) => {
-        const dateSplit = date.split("-")
-        return `${dateSplit[2].substring(0,2)}/${dateSplit[1]}/${dateSplit[0]}`
-    }
-
+        console.log(date);
+        return date.slice(0, 10).split('-').reverse().join('/');
+    };
 
     if (currentRecipe) {
         return (
