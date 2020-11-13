@@ -80,9 +80,7 @@ export default function RecipeDetail({recipes}) {
         return date.slice(0, 10).split('-').reverse().join('/');
     };
 
-
     if (currentRecipe) {
-        console.log(`current recipe: ${currentRecipe}`);
         return (
             <div className="wrap-container">
             <Container>
