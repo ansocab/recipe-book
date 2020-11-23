@@ -11,17 +11,27 @@ var contentful = require('contentful');
 function App() {
 
   const [recipes, setRecipes] = useState([]);
+  //const [api, setApi] = useState('');
+  
+  useEffect(()=> {
+    fetch("http://localhost:9000/testAPI")
 
-    useEffect(() => {
-        var client = contentful.createClient({
-          space: process.env.REACT_APP_SPACE_ID,
-          accessToken: process.env.REACT_APP_ACCESS_TOKEN
-        });
-        client.getEntries().then((entries) => {
-            setRecipes(entries.items);
-          })
-        .catch((err) => alert("error"));
-        }, []);
+        .then(res => res.json())
+        .then(res => {setRecipes(res)
+        console.log(res)}
+        );
+
+  }, []);
+    // useEffect(() => {
+    //     var client = contentful.createClient({
+    //       space: process.env.REACT_APP_SPACE_ID,
+    //       accessToken: process.env.REACT_APP_ACCESS_TOKEN
+    //     });
+    //     client.getEntries().then((entries) => {
+    //         setRecipes(entries.items);
+    //       })
+    //     .catch((err) => alert("error"));
+    //     }, []);
 
   return (
     <div className="App">
