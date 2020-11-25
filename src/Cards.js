@@ -6,6 +6,7 @@ import './Cards.css';
 import {Link} from "react-router-dom";
 
 export default function Cards({searchResults, recipes}) {
+  console.log(recipes)
     const config = {
         dots: true,
         infinite: true,
@@ -115,13 +116,13 @@ export default function Cards({searchResults, recipes}) {
             <Slider {...recipeConfig}>
               {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
               .map((recipe) => {
-                return <div key={recipe.fields.slug} className="img-card bg">
-                  <img className="img" src={recipe.fields.images[0].fields.file.url}/>
+                return <div key={recipe.slug} className="img-card bg">
+                  <img className="img" src={recipe.images[0].fields.file.url}/>
                   <div class="card-body">
-                    <div className="card-title">{recipe.fields.title}</div>
-                    <div className="card-text">{recipe.fields.description}</div>
+                    <div className="card-title">{recipe.title}</div>
+                    <div className="card-text">{recipe.description}</div>
                   </div>
-                  <Link to={recipe.fields.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
+                  <Link to={recipe.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
                 </div>
               })}
             </Slider>
@@ -133,22 +134,22 @@ export default function Cards({searchResults, recipes}) {
     const getRecipe = (elem) => {
         return (<div className="cards">
        <Slider {...settings}>
-        {recipes.filter(recipe => recipe.fields.meals === elem)
+        {recipes.filter(recipe => recipe.meals === elem)
         .map((recipe) => {
-          return <div key={recipe.fields.slug} className="img-card">
+          return <div key={recipe.slug} className="img-card">
               <div className="content">
              <div className="content-overlay"></div> 
-            <img className="img" src={recipe.fields.images[0].fields.file.url}/>
+            {/*<img className="img" src={recipe.images[0].fields.file.url}/>*/}
             <div class="content-details fadeIn-left">
-            <h4 className="content-title">{recipe.fields.duration} minutes</h4>
-            <p>{recipe.fields.difficulty}</p>
+            <h4 className="content-title">{recipe.duration} minutes</h4>
+            <p>{recipe.difficulty}</p>
             </div>
             </div>
             <div class="card-body">
-              <div className="card-title">{recipe.fields.title}</div>
-              <div className="card-text">{recipe.fields.description}</div>
+              <div className="card-title">{recipe.title}</div>
+              <div className="card-text">{recipe.description}</div>
             </div>
-             <Link to={recipe.fields.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
+             <Link to={recipe.slug}><a class="btn btn-primary card-button d-block align-self-end">Read more</a></Link>
           </div>
         })}
       </Slider>

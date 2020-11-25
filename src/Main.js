@@ -14,7 +14,8 @@ export default function Main({recipes}) {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (recipes.length) {
+        console.log("recipes has changed!")
+        if (!recipes.length) {
             setLoading(true)
         }
         else {
@@ -33,7 +34,7 @@ export default function Main({recipes}) {
             <h2 class="main-title title-text text-center text-uppercase">
                 Amazing Health Solution
             </h2>
-            {loading ? <Cards searchResults={searchResults} recipes={recipes}/> : <Spinner /> }
+            {loading ? <Spinner /> : <Cards searchResults={searchResults} recipes={recipes}/> }
             </div>
         </div>
         <div id ="home-newsletter" class="home-newsletter">

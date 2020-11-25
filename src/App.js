@@ -14,7 +14,7 @@ function App() {
   //const [api, setApi] = useState('');
   
   useEffect(()=> {
-    fetch("http://localhost:9000/testAPI")
+    fetch("http://localhost:9000/")
 
         .then(res => res.json())
         .then(res => {setRecipes(res)
