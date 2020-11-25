@@ -42,7 +42,7 @@ function DifficultyVisualisation({difficulty}) {
 
 export default function RecipeDetail({recipes}) {
     const { slug } = useParams();
-    const currentRecipe = recipes.find(recipe => recipe.fields.slug === slug)
+    const currentRecipe = recipes.find(recipe => recipe.slug === slug)
 
     const { pathname } = useLocation();
 
@@ -85,27 +85,27 @@ export default function RecipeDetail({recipes}) {
             <div className="wrap-container">
             <Container>
                 <Row className="pt-4 pb-3">
-                    <h1>{currentRecipe.fields.title}</h1>
+                    <h1>{currentRecipe.title}</h1>
                 </Row>
                 <Row className="justify-content-center pb-2">
                     <Col xs="auto" sm="auto">
                         <FontAwesomeIcon icon={faClock}/>
-                        <span className="pl-1">{formatDuration(currentRecipe.fields.duration)}</span>
+                        <span className="pl-1">{formatDuration(currentRecipe.duration)}</span>
                     </Col>
                     <Col xs="auto" sm="auto" className="difficultyIndication">
-                        <DifficultyVisualisation difficulty={currentRecipe.fields.difficulty}/>
-                        <span className="pl-1">{currentRecipe.fields.difficulty}</span>
+                        <DifficultyVisualisation difficulty={currentRecipe.difficulty}/>
+                        <span className="pl-1">{currentRecipe.difficulty}</span>
                     </Col>
                     <Col xs="auto" sm="auto">
                         <FontAwesomeIcon icon={faCalendarAlt}/>
-                        <span className="pl-2">{convertDate(currentRecipe.fields.publishDate)}</span>
+                        <span className="pl-2">{convertDate(currentRecipe.publishDate)}</span>
                     </Col>
                 </Row>
                 <Row className="pt-4 pb-4">
                     <Carousel interval={null} className="carousel-width"
                     nextIcon={<FontAwesomeIcon icon={faChevronCircleRight} aria-hidden="true" className="recipe-control-icon"/>} 
                     prevIcon={<FontAwesomeIcon icon={faChevronCircleLeft} aria-hidden="true" className="recipe-control-icon"/>}>
-                        {currentRecipe.fields.images.map((image) => {
+                        {currentRecipe.images.map((image) => {
                             return  <Carousel.Item className="carousel-image-height overflow-hidden">
                                         <img className="d-block w-100 h-100" src={image?.fields?.file?.url} alt={image?.fields?.title}/>   
                                     </Carousel.Item>
@@ -115,7 +115,7 @@ export default function RecipeDetail({recipes}) {
                 <Row>
                     <Col className="col-12 col-md-12 col-lg-7 pt-4 preparation-column">
                         <h2>Preparation</h2>
-                        {splitIntoParagraphs(currentRecipe.fields.body).map((paragraph, index) => {
+                        {splitIntoParagraphs(currentRecipe.body).map((paragraph, index) => {
                             return <Row>
                                 <Col className="col-1 ml-3 p-0 d-flex justify-content-center">
                                     <div className="background-circle">
@@ -131,15 +131,17 @@ export default function RecipeDetail({recipes}) {
                     <Col className="col-10 col-sm-10 col-md-9 col-lg-5 mx-auto pt-4 pb-5 ingredients-column">
                         <h2>Ingredients</h2>
                         <Table striped borderless className="ingredientsTable">  
+                            {console.log(currentRecipe.ingredientList)}
                             <tbody>
-                                 {Object.keys(currentRecipe.fields.ingredientList).map ((ingredient) => {
+                                 {
+                                 Object.keys({ ...currentRecipe.ingredientList }).map ((ingredient) => {
                                      return <tr>
                                                 <td>
                                                     <div className="mx-auto text-right">
                                                         <input type="checkbox" aria-label="Checkbox for following ingredient"/>
                                                     </div>
                                                 </td>
-                                                <td className="text-center">{currentRecipe.fields.ingredientList[ingredient]}</td>
+                                                <td className="text-center">{currentRecipe.ingredientList[ingredient]}</td>
                                                 <td>{ingredient}</td>
                                             </tr>
                                  })}        
