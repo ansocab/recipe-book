@@ -74,9 +74,12 @@ export default function RecipeDetail({recipes}) {
         return `${hourString} ${minuteString}`
     }
 
-    const splitIntoParagraphs = (text) => text.split("\n\n")
+    const splitIntoParagraphs = (text) => {
+        const splitText = text.split("\\n")
+        const paragraphs = splitText.filter((item) => item !== "")
+        return paragraphs
+    }
     const convertDate = (date) => {
-        console.log(date);
         return date.slice(0, 10).split('-').reverse().join('/');
     };
 
@@ -131,18 +134,20 @@ export default function RecipeDetail({recipes}) {
                     <Col className="col-10 col-sm-10 col-md-9 col-lg-5 mx-auto pt-4 pb-5 ingredients-column">
                         <h2>Ingredients</h2>
                         <Table striped borderless className="ingredientsTable">  
-                            {console.log(currentRecipe.ingredientList)}
                             <tbody>
                                  {
-                                 Object.keys({ ...currentRecipe.ingredientList }).map ((ingredient) => {
+                                 currentRecipe.ingredients.map ((ingredient) => {
+                                     const ingredientArray = ingredient.split(":")
+                                     const food = ingredientArray.slice(0, 1)
+                                     const quantity = ingredientArray.slice(1)
                                      return <tr>
                                                 <td>
                                                     <div className="mx-auto text-right">
                                                         <input type="checkbox" aria-label="Checkbox for following ingredient"/>
                                                     </div>
                                                 </td>
-                                                <td className="text-center">{currentRecipe.ingredientList[ingredient]}</td>
-                                                <td>{ingredient}</td>
+                                                <td className="text-center">{quantity}</td>
+                                                <td>{food}</td>
                                             </tr>
                                  })}        
                             </tbody>
