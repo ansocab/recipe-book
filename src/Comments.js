@@ -50,7 +50,7 @@ export default function Comments() {
           method="post"
           id="commentform"
           className="comment-form"
-          autocomplete="off"
+          autoComplete="off"
         >
           <div className="comment-form-left">
             <p className="comment-form-author">
@@ -60,12 +60,13 @@ export default function Comments() {
               <input
                 value={formData.firstName}
                 onChange={updateFormData}
+                className="input-comments"
                 id="firstName"
                 placeholder="name*"
                 name="firstName"
                 type="text"
-                maxlength="245"
-                autocomplete="nope"
+                maxLength="245"
+                autoComplete="nope"
                 
               />
             </p>
@@ -76,12 +77,13 @@ export default function Comments() {
               <input
                 value={formData.email}
                 onChange={updateFormData}
+                className="input-comments"
                 id="email"
                 placeholder="email*"
                 name="email"
                 type="text"
-                maxlength="100"
-                autocomplete="nope"
+                maxLength="100"
+                autoComplete="nope"
                 
               />
             </p>
@@ -90,12 +92,13 @@ export default function Comments() {
               <input
                 value={formData.title}
                 onChange={updateFormData}
+                className="input-comments"
                 id="title"
                 placeholder="title"
                 name="title"
                 type="text"
-                maxlength="200"
-                autocomplete="off"
+                maxLength="200"
+                autoComplete="off"
               />
             </p>
           </div>
@@ -106,12 +109,13 @@ export default function Comments() {
               <textarea
                value={formData.comment}
                onChange={updateFormData}
+               className="input-comments"
                 placeholder="comment"
                 id="comment"
                 name="comment"
                 cols="45"
                 rows="8"
-                maxlength="600"
+                maxLength="600"
                 required="required"
               ></textarea>
             </p>
