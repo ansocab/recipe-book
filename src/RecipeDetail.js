@@ -7,6 +7,7 @@ import { useParams, useLocation } from "react-router-dom";
 import "./RecipeDetail.css";
 import video from "./images/video.mp4";
 import Spinner from "./Spinner"
+import Comments from "./Comments"
 
 function DifficultyVisualisation({difficulty}) {
     switch (difficulty) {
@@ -159,6 +160,7 @@ export default function RecipeDetail({recipes}) {
                         <video controls autostart autoPlay src={video} type="video/mp4" />
                     </div>
                 </Row>
+                <Comments />
             </Container>
             </div>
         )

@@ -1,0 +1,140 @@
+#respond {
+    background: #eeedef;
+    width: 690px;
+    margin: 0 auto;
+  }
+  .comment-respond {
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .comment-respond .comment-reply-title {
+    font-family: "Bitter", serif;
+    font-size: 19px;
+    text-transform: uppercase;
+    color: #723f5f;
+    margin-bottom: 25px;
+  }
+  
+  #respond form {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  
+  .comment-form-left {
+    float: left;
+    width: 34.030411449%;
+  }
+  
+  .comment-form-right {
+    float: right;
+    margin-left: 2.325581395%;
+    width: 60.644007156%;
+  }
+  
+  .comment-respond p {
+    margin-bottom: 13px;
+  }
+  
+  .comment-respond label {
+    display: none;
+  }
+  
+  .comment-respond textarea {
+    height: 135px;
+  }
+  
+  .comment-respond input,
+  .comment-respond textarea {
+    font-family: "Bitter", serif;
+  }
+  
+  input,
+  select,
+  textarea {
+    background-color: #fff;
+    border: none;
+    color: #723f5f;
+    font-size: 15px;
+    padding: 12px;
+    width: 100%;
+  }
+  
+  textarea {
+    overflow: auto;
+  }
+  
+  #respond .form-submit {
+    width: initial;
+    padding-left: 0;
+  }
+  .comment-respond .form-submit {
+    overflow: hidden;
+    padding-left: 39.355992844%;
+    width: 100%;
+    margin: 0;
+  }
+  
+  #respond .form-submit .submit {
+    font-family: "Dosis", sans-serif;
+    text-transform: lowercase;
+    font-size: 1.3rem;
+    padding: 0.5rem 1.5rem 0.8rem;
+    margin-bottom: 2rem;
+    border-bottom: 6px solid #551840;
+    border-radius: 0 0 2px 2px;
+  }
+  .comment-respond .form-submit .submit {
+    float: right;
+    line-height: 20px;
+    padding: 0 14px;
+    vertical-align: middle;
+    background-color: #723f5f;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .comment-content {
+    display: flex;
+    flex: wrap;
+  }
+  
+  .comment-list li {
+    list-style-type: none;
+  }
+  .comment-list{
+  margin-bottom: 0;
+}
+  
+  .comment-author {
+    color: #723f5f;
+    font-family: "Dosis", sans-serif;
+    font-size: 18px;
+    text-transform: lowercase;
+    font-style: italic;
+  }
+  
+  .email-fn {
+    font-style: italic;
+    font-size: 16px;
+  }
+  .title-fn {
+    font-family: "Bitter", serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+  }
+  
+  .title-comments {
+    font-family: 'CrimsonText'!important;
+    font-size: 2.2rem!important;
+    margin-bottom: 0.25rem;
+    margin-top: 1.5rem;
+    color: #723f5f;
+    font-family: "Dosis", sans-serif;
+    border-bottom: 2px solid #979599;
+  }
+  
