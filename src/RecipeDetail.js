@@ -111,7 +111,7 @@ export default function RecipeDetail({recipes}) {
                     prevIcon={<FontAwesomeIcon icon={faChevronCircleLeft} aria-hidden="true" className="recipe-control-icon"/>}>
                         {currentRecipe.images.map((image) => {
                             return  <Carousel.Item className="carousel-image-height overflow-hidden">
-                                        <img className="d-block w-100 h-100" src={image?.fields?.file?.url} alt={image?.fields?.title}/>   
+                                        <img className="d-block w-100 h-100" src={`https://ourrecipebook.herokuapp.com/static/${image}`} alt={image}/>   
                                     </Carousel.Item>
                         })}
                     </Carousel>
