@@ -117,7 +117,7 @@ export default function Cards({searchResults, recipes}) {
               {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
               .map((recipe) => {
                 return <div key={recipe.slug} className="img-card bg">
-                  <img className="img" src={recipe.images[0].fields.file.url}/>
+                  <img className="img" src={`https://ourrecipebook.herokuapp.com/static/${recipe.images[0]}` }/>
                   <div class="card-body">
                     <div className="card-title">{recipe.title}</div>
                     <div className="card-text">{recipe.description}</div>
@@ -139,7 +139,7 @@ export default function Cards({searchResults, recipes}) {
           return <div key={recipe.slug} className="img-card">
               <div className="content">
              <div className="content-overlay"></div> 
-            {/*<img className="img" src={recipe.images[0].fields.file.url}/>*/}
+            <img className="img" src={`https://ourrecipebook.herokuapp.com/static/${recipe.images[0]}`}/>
             <div class="content-details fadeIn-left">
             <h4 className="content-title">{recipe.duration} minutes</h4>
             <p>{recipe.difficulty}</p>
