@@ -6,7 +6,8 @@ import Footer from './Footer';
 import Main from './Main';
 import RecipeDetail from './RecipeDetail';
 import {Switch, Route } from "react-router-dom";
-var contentful = require('contentful');
+//const algoliasearch = require('algoliasearch');
+//var contentful = require('contentful');
 
 function App() {
 
@@ -15,10 +16,11 @@ function App() {
   
   useEffect(()=> {
     fetch("https://ourrecipebook.herokuapp.com/")
-
         .then(res => res.json())
-        .then(res => {setRecipes(res)
-        console.log(res)}
+        .then(res => {
+          setRecipes(res)
+        console.log(res)
+      }
         );
 
   }, []);

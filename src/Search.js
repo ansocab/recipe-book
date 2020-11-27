@@ -12,15 +12,19 @@ export default function Search({callback}) {
     const [index, setIndex] = useState(null);
     //const [searchStatus, setSearchStatus] = useState("noSearch");
 
+    // const searchClient = algoliasearch(process.env.REACT_APP_APPLICATION_ID, process.env.REACT_APP_ADMIN_API_KEY);
+    // const index = searchClient.initIndex('ourrecipebook');
+    // index.saveObjects(res, { autoGenerateObjectIDIfNotExist: true });
+
     useEffect(()=>{
         if (firstRun) {
             setFirstRun(false);
             const searchClient = algoliasearch(process.env.REACT_APP_APPLICATION_ID, process.env.REACT_APP_SEARCH_API_KEY);
-            setIndex(searchClient.initIndex('recipebook'));
+            setIndex(searchClient.initIndex('ourrecipebook'));
         } else {
             if (input.length) {
                 index.search(input).then(({ hits }) => {
-                    hits.length ? callback(hits.map(recipe => recipe.sys.id)) : callback(["noResults"])
+                    hits.length ? callback(hits.map(recipe => recipe.slug)) : callback(["noResults"])
                 });
             } else {
                 callback([]);
