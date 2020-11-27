@@ -160,7 +160,7 @@ export default function RecipeDetail({recipes}) {
                         <video controls autostart autoPlay src={video} type="video/mp4" />
                     </div>
                 </Row>
-                <Comments />
+                {/*<Comments />*/}
             </Container>
             </div>
         )

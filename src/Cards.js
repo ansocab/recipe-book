@@ -114,7 +114,7 @@ export default function Cards({searchResults, recipes}) {
           <h1 id="search">Search results</h1>
           <div className="cards-search">
             <Slider {...recipeConfig}>
-              {recipes.filter(recipe => searchResults.includes(recipe.sys.id))
+              {recipes.filter(recipe => searchResults.includes(recipe.slug))
               .map((recipe) => {
                 return <div key={recipe.slug} className="img-card bg">
                   <img className="img" src={`https://ourrecipebook.herokuapp.com/static/${recipe.images[0]}` }/>

@@ -20,12 +20,12 @@ export default function Header() {
                     </Col>
                     <Col className="col-12 col-sm-4 pt-4">
                         <h5>Powered by</h5>
-                        <div>Contentful</div>
-                        <div>Algolia</div>
                         <div>React JS</div>
-                        <div>HTML5</div>
-                        <div>CSS3</div>
-                        <div>Bootstrap</div>
+                        <div>Express JS</div>
+                        <div>ElephantSQL</div>
+                        <div>Algolia Search</div>
+                        <div>HTML5, CSS3, Bootstrap</div>
+                        <div>Netlify, Heroku</div>
                     </Col>
                     <Col className="col-xs-12 col-log-4 pt-4">
                         <h5>GitHub Repo</h5>
