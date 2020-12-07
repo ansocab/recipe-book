@@ -2,6 +2,8 @@
 
 A full-stack web application letting the user discover delicious vegetarian recipes
 
+![Live app screenshot](src/images/recipe-book-screenshot.png)
+
 
 ## Frontend built with 
 
