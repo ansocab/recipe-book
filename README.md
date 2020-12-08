@@ -19,7 +19,7 @@ Repository: [github.com/ansocab/recipe-book](https://github.com/ansocab/recipe-b
 - Express.js / Node.js
 - PostgreSQL / ElephantSQL
 
-Repostiory: [github.com/lidiyacheb/recipe-book-api](https://github.com/lidiyacheb/recipe-book-api)
+Repository: [github.com/lidiyacheb/recipe-book-api](https://github.com/lidiyacheb/recipe-book-api)
 
 
 ## Live Demo
